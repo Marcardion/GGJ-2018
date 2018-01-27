@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ColorLight { Blue, Yellow, Red, Green, Orange, Purple };
+public enum ColorLight { None, Blue, Yellow, Red, Green, Orange, Purple, Cyan, Magenta };
 
 public class Robot_ChangeLight : MonoBehaviour {
-
-	public ColorLight mColor;
-
-	[SerializeField] private Light mLight;
 
 	private PlayerController controller;
 
@@ -27,18 +23,17 @@ public class Robot_ChangeLight : MonoBehaviour {
 	{
 		if (Input.GetButton (controller.playerCode + "Jump")) 
 		{
-			mLight.color = Color.yellow;
-			mColor = ColorLight.Yellow;
+			controller.updateCurrentColor (ColorLight.Yellow);
 		}
 		else if (Input.GetButton (controller.playerCode + "Fire2")) 
 		{
-			mLight.color = Color.red;
-			mColor = ColorLight.Red;
+			controller.updateCurrentColor (ColorLight.Red);
+
 		}
 		else if (Input.GetButton (controller.playerCode + "Fire3")) 
 		{
-			mLight.color = Color.blue;
-			mColor = ColorLight.Blue;
+			controller.updateCurrentColor (ColorLight.Blue);
+
 		}
 	}
 }

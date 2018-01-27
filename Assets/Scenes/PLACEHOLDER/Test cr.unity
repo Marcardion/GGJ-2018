@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 863053788}
   - component: {fileID: 863053787}
   - component: {fileID: 863053786}
+  - component: {fileID: 863053791}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownTime: 3
   colors: 000000000100000002000000030000000400000005000000
-  mLight: {fileID: 1023152701}
+  currentTime: 0
 --- !u!23 &863053787
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -273,6 +274,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863053791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863053785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6429e7c7be455f54d94fa4921ee7c11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLight: 0
+  mLight: {fileID: 1023152701}
 --- !u!1 &1023152700
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +801,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 10
   m_Depth: -1

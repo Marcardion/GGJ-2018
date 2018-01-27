@@ -10,9 +10,15 @@ public class PlayerController : MonoBehaviour {
 
 	private State currentState; 
 
+	public ColorLight currentColor;
+
+	[SerializeField] private Light mLight;
+
 	// Use this for initialization
 	void Start () {
 		currentState = State.Normal;
+		updateLight (ColorLight.Blue);
+		currentColor = ColorLight.Blue;
 	}
 	
 	// Update is called once per frame
@@ -32,4 +38,17 @@ public class PlayerController : MonoBehaviour {
 	public bool isDead(){
 		return currentState == State.Dead;
 	}
+
+
+	public void updateCurrentColor(ColorLight colorLight){
+		
+		updateLight (colorLight);
+		currentColor = colorLight;
+
+	}
+
+	public void updateLight(ColorLight colorLight){
+		mLight.color = ColorUtils.GetColor (colorLight);
+	}
+
 }

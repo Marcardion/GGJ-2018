@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class RandomizeColor : MonoBehaviour {
 
+	private ChestController controller;
 
 	[SerializeField] private float countdownTime = 10f;
 
 	[SerializeField] private List<ColorLight> colors;
 
-	[SerializeField] private Light mLight;
-
-
 	[SerializeField] private float currentTime = 0f;
 
 	// Use this for initialization
 	void Start () {
-		
+		controller = GetComponent<ChestController> ();
 		currentTime = countdownTime;
 	}
 	
@@ -35,10 +33,7 @@ public class RandomizeColor : MonoBehaviour {
 
 	private void RandomizeObjColor() {
 		int index = Random.Range (0, colors.Count);	
-
-
-		mLight.color = ColorUtils.GetColor (colors [index]);
-
+		controller.updateLightColor (colors [index]);
 
 
 	}

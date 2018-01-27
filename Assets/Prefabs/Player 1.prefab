@@ -252,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6746a1ab463b10e42a5f7cee4a2ec7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mLight: {fileID: 108380653203130460}
 --- !u!114 &114474342301983036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,6 +264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCode: P1
+  currentColor: 0
+  mLight: {fileID: 108380653203130460}
 --- !u!114 &114844241288942760
 MonoBehaviour:
   m_ObjectHideFlags: 1

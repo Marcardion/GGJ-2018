@@ -8,17 +8,17 @@ public class ColorUtils
 
 		switch (colorLight) {
 			case ColorLight.Blue:
-				return Color.blue;
+			return GetColorFromHex("#579DD6");
 			case ColorLight.Green:
-				return Color.green;
+			return  GetColorFromHex("#97FFAB");
 			case ColorLight.Orange:
-				return GetColorFromHex("#FFA500");
+				return GetColorFromHex("#FF994D");
 			case ColorLight.Purple:
-				return GetColorFromHex("#551A8B");
+				return GetColorFromHex("#CC8BF7");
 			case ColorLight.Red:
-				return GetColorFromHex("#FF0000");
+				return GetColorFromHex("#EA503D");
 			case ColorLight.Yellow:
-				return Color.yellow;
+			return GetColorFromHex("#F4E572");
 		default:
 			return Color.black;
 		}

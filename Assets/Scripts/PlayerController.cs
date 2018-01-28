@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum State { Normal, Damaged, Falling, Dead }
+public enum State { Normal, Damaged, Interacting, Falling, Dead }
 
 public class PlayerController : MonoBehaviour {
 
@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour {
 		mAnimator.SetBool ("IsInteracting", true);
 		effect.SetPosition (0, transform.position);
 		effect.SetPosition (1, position);
+		currentState = State.Interacting;
 
 
 
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour {
 		mAnimator.SetBool ("IsInteracting", false);
 		effect.SetPosition (0, transform.position);
 		effect.SetPosition (1, transform.position);
+		currentState = State.Normal;
 	}
 
 	private void checkIsFalling(){

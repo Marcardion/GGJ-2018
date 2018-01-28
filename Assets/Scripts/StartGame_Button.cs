@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class StartGame_Button : MonoBehaviour {
 
 	[SerializeField] private GameObject p1Flag;
@@ -14,9 +14,15 @@ public class StartGame_Button : MonoBehaviour {
 
 	[SerializeField] private string pressButton = "Fire1";
 
+	[SerializeField] private Animator radioAnimator;
+
+	[SerializeField] private AudioClip brokenRadioClip;
+
+	[SerializeField] private Image black;
+
 	// Use this for initialization
 	void Start () {
-		
+		StartCoroutine ("FadeIn");
 	}
 	
 	// Update is called once per frame
@@ -51,7 +57,45 @@ public class StartGame_Button : MonoBehaviour {
 
 	IEnumerator StartGame()
 	{
-		yield return new WaitForSeconds (1f);
+		StartCoroutine ("FadeOut");
+		radioAnimator.SetBool ("Stop", true);
+		SoundManager.instance.StopMusic ();
+		SoundManager.instance.PlaySingle ( brokenRadioClip, 3);
+		yield return new WaitForSeconds (2f);
+
+		SoundManager.instance.StopPlay (3);
 		GetComponent<LoadScene> ().Load ();
+	}
+
+
+
+	public IEnumerator FadeOut()
+	{
+		yield return new WaitForSeconds (1f);
+
+		float i = 0;
+
+		while (i < 1) 
+		{
+			black.color = new Color (black.color.r, black.color.g, black.color.b, i);
+			i = i + Time.deltaTime;
+			yield return new WaitForEndOfFrame ();
+		}
+	}
+
+	public IEnumerator FadeIn()
+	{
+		
+		float i = 1;
+
+		while (i > 0) 
+		{
+			if (black != null) {
+				black.color = new Color (black.color.r, black.color.g, black.color.b, i);
+			}
+
+			i = i - Time.deltaTime;
+			yield return new WaitForEndOfFrame ();
+		}
 	}
 }

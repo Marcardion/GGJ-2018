@@ -33,6 +33,10 @@ public class SoundManager : MonoBehaviour {
 		musicSource.Play ();
 	}
 
+	public void StopMusic(){
+		musicSource.Stop ();
+	}
+
 	public void PlaySingle (AudioClip clip, int channel) {
 		efxSource[channel].clip = clip;
 		efxSource[channel].Play();

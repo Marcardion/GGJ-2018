@@ -10,6 +10,9 @@ public class Robot_Movement : MonoBehaviour {
 
 	private PlayerController controller;
 
+	[SerializeField] AudioClip[] movingSfxs;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -22,7 +25,26 @@ public class Robot_Movement : MonoBehaviour {
 	{
 		if (controller.currentState != State.Dead) {
 			Move ();
+
+
+
 		}
+	}
+
+	private void PlaySound(){
+		if (controller.currentState != State.Interacting) {
+		
+			if (controller.playerCode == "P1") {
+				if (!SoundManager.instance.IsChannelPlaying (3)) {
+					SoundManager.instance.RandomizeSfx (3, movingSfxs);
+				}
+			} else {
+				if (!SoundManager.instance.IsChannelPlaying (4)) {
+					SoundManager.instance.RandomizeSfx (4, movingSfxs);
+				}
+			}
+		}
+
 	}
 
 	void Move()
@@ -36,6 +58,7 @@ public class Robot_Movement : MonoBehaviour {
 		if(hAxis >= 0.1 || vAxis >= 0.1)
 		{
 			controller.mAnimator.SetBool ("IsWalking", true);
+			//PlaySound ();
 			transform.forward = Vector3.RotateTowards(transform.forward, Vector3.Normalize(moveVector), Time.deltaTime*5f, 0.0F);
 		} else 
 		{

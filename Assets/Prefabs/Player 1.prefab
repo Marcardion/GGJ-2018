@@ -1906,6 +1906,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  movingSfxs:
+  - {fileID: 8300000, guid: 2c4f41e5da4fb944da97add13fe7665e, type: 3}
+  - {fileID: 8300000, guid: 4ed2095f8d2216c4a90d5808241da1b4, type: 3}
+  - {fileID: 8300000, guid: cabc01a22c55605418d89983648a6925, type: 3}
 --- !u!120 &120854028046850246
 LineRenderer:
   m_ObjectHideFlags: 1

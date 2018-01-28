@@ -10,6 +10,14 @@ public class EnergyBattery : MonoBehaviour {
 
 	[SerializeField] private float maxEnergy;
 
+	private bool overHeated = false;
+
+	public static EnergyBattery instance;
+
+	void Awake()
+	{
+		instance = this;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +29,13 @@ public class EnergyBattery : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		DecreaseEnergy (Time.deltaTime);
+		if (overHeated) 
+		{
+			DecreaseEnergy (Time.deltaTime*3);	
+		} else 
+		{
+			DecreaseEnergy (Time.deltaTime);
+		}
 
 		if (mSlider.value == 0) 
 		{
@@ -37,4 +50,8 @@ public class EnergyBattery : MonoBehaviour {
 		mSlider.value = mSlider.value - energy;
 	}
 
+	public void SetOverheat(bool mode)
+	{
+		overHeated = mode;
+	}
 }

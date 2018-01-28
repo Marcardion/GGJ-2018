@@ -14,11 +14,15 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private Light mLight;
 
+	[HideInInspector] public Animator mAnimator;
+
 	// Use this for initialization
 	void Start () {
 		currentState = State.Normal;
 		updateLight (ColorLight.Blue);
 		currentColor = ColorLight.Blue;
+
+		mAnimator = GetComponentInChildren<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -50,5 +54,6 @@ public class PlayerController : MonoBehaviour {
 	public void updateLight(ColorLight colorLight){
 		mLight.color = ColorUtils.GetColor (colorLight);
 	}
+
 
 }

@@ -62,12 +62,15 @@ public class Robot_Proximity : MonoBehaviour {
 			ColorLight mixedColor = ColorUtils.CombineColors (p1Controller.currentColor, p2Controller.currentColor);
 			p1Controller.updateLight (mixedColor);
 			p2Controller.updateLight (mixedColor);
+
+			EnergyBattery.instance.SetOverheat (true);
 			return true;
 		} else 
 		{
 			p1Controller.updateLight (p1Controller.currentColor);
 			p2Controller.updateLight (p2Controller.currentColor);
 
+			EnergyBattery.instance.SetOverheat (false);
 			return false;
 		}
 	}

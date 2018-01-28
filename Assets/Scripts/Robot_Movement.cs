@@ -30,6 +30,15 @@ public class Robot_Movement : MonoBehaviour {
 		
 		Vector3 moveVector = new Vector3 (Input.GetAxisRaw ((controller.playerCode + "Horizontal")) * speed, 0, Input.GetAxisRaw ((controller.playerCode + "Vertical")) * speed);
 
+		if (moveVector != Vector3.zero) {
+			controller.mAnimator.SetBool ("IsWalking", true);
+		} else 
+		{
+			controller.mAnimator.SetBool ("IsWalking", false);
+		}
+			
+
+
 		mRigidbody.velocity = moveVector;
 
 	}

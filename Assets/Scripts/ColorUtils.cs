@@ -48,9 +48,13 @@ public class ColorUtils
 			switch (color2) {
 			case ColorLight.Blue:
 				return ColorLight.Green;
+				break;
 			case ColorLight.Red:
 				return ColorLight.Orange;
-
+				break;
+			case ColorLight.Yellow:
+				return ColorLight.Yellow;
+				break;
 
 			}	
 		}else if (color1 == ColorLight.Red){
@@ -59,6 +63,8 @@ public class ColorUtils
 				return ColorLight.Orange;
 			case ColorLight.Blue:
 				return ColorLight.Purple;
+			case ColorLight.Red:
+				return ColorLight.Red;
 				}	
 		}
 

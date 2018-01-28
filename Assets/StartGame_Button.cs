@@ -7,7 +7,12 @@ public class StartGame_Button : MonoBehaviour {
 	[SerializeField] private GameObject p1Flag;
 	[SerializeField] private GameObject p2Flag;
 
+	[SerializeField] private AudioClip p1Clip;
+	[SerializeField] private AudioClip p2Clip;
+
 	private bool ready = true;
+
+	[SerializeField] private string pressButton = "Fire1";
 
 	// Use this for initialization
 	void Start () {
@@ -21,14 +26,16 @@ public class StartGame_Button : MonoBehaviour {
 
 	void CheckOk()
 	{
-		if (Input.GetButtonDown ("P1Fire1") && !p1Flag.activeSelf) 
+		if (Input.GetButtonDown ("P1" + pressButton) && !p1Flag.activeSelf) 
 		{
 			p1Flag.SetActive (true);
+			SoundManager.instance.PlaySingle (p1Clip, 0);
 		}
 
-		if (Input.GetButtonDown ("P2Fire1") && !p2Flag.activeSelf) 
+		if (Input.GetButtonDown ("P2" + pressButton) && !p2Flag.activeSelf) 
 		{
 			p2Flag.SetActive (true);
+			SoundManager.instance.PlaySingle (p2Clip, 0);
 		}
 			
 		if (p1Flag.activeSelf && p2Flag.activeSelf) 

@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator FadeOut()
 	{
+		yield return new WaitForSeconds (1f);
+
 		float i = 0;
 
 		while (i < 1) 

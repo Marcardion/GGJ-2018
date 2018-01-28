@@ -110,9 +110,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a5d8d067b3dcdf64fabe320b6762c8d1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.62
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLight: 1
   life: 3
+  chestEnd: {fileID: 8300000, guid: 23be109907d477b409fc434febef24a9, type: 3}
   enabled: 1
 --- !u!114 &114542389594299160
 MonoBehaviour:

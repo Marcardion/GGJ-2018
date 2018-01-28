@@ -16,8 +16,16 @@ public class CameraTarget_Move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		transform.position = (p1.transform.position + p2.transform.position) / 2f;
+		FindMiddlePoint ();
 	}
+
+	void FindMiddlePoint()
+	{
+		Vector3 middlepoint = (p1.transform.position + p2.transform.position) / 2f;
+		middlepoint.y = 0.5f;
+		transform.position = middlepoint;
+	}
+
 
 	void MoveTo(int direction)
 	{

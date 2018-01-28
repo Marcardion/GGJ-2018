@@ -10,6 +10,8 @@ public class ChestController : MonoBehaviour {
 
 	[SerializeField] private float life =  6f;
 
+	[SerializeField] private AudioClip chestEnd;
+
 	private bool activating = false;
 
 	public bool enabled = true;
@@ -43,6 +45,7 @@ public class ChestController : MonoBehaviour {
 					updateLightColor (ColorLight.None);
 					EnergyBattery.instance.AddEnergy (10f);
 					GameManager.instance.ChestEnded ();
+					SoundManager.instance.PlaySingle (chestEnd, 0);
 					enabled = false;
 				}
 					

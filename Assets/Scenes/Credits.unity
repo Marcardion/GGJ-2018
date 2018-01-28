@@ -113,6 +113,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &16356943
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.021808475
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 21.827173
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -12.9295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234420641403220, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 82622306840116450, guid: 53b7240a0434ad343b0f6f536c80128e,
+        type: 2}
+      propertyPath: m_Pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 53b7240a0434ad343b0f6f536c80128e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &59730629
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1Flag: {fileID: 1515161502}
   p2Flag: {fileID: 2032103261}
+  p1Clip: {fileID: 8300000, guid: cea1adcaab130e749836e3eccac8026d, type: 3}
+  p2Clip: {fileID: 8300000, guid: b54823e3daff4984d839293bf8635e20, type: 3}
+  pressButton: Fire1
 --- !u!114 &104929387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,10 +669,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9047a3b89f6440f4dba03297848ef24d, type: 3}
-    m_FontSize: 14
+    m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -630,7 +680,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Go Back
+  m_Text: '[A] Go Back'
 --- !u!222 &1776260638
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -16,18 +16,21 @@ public class RandomizeColor : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<ChestController> ();
 		currentTime = countdownTime;
+		RandomizeObjColor ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if (controller.enabled) {
+
 			currentTime -= Time.deltaTime;
 
 			if (currentTime <= 0) {
 				RandomizeObjColor ();
 				currentTime = countdownTime;
 			}
-
+		}
 		 
 	}
 

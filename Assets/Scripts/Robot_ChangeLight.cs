@@ -23,16 +23,16 @@ public class Robot_ChangeLight : MonoBehaviour {
 	{
 		if (Input.GetButton (controller.playerCode + "Jump")) 
 		{
-			controller.updateCurrentColor (ColorLight.Yellow);
+			controller.updatePersonalColor (ColorLight.Yellow);
 		}
 		else if (Input.GetButton (controller.playerCode + "Fire2")) 
 		{
-			controller.updateCurrentColor (ColorLight.Red);
+			controller.updatePersonalColor (ColorLight.Red);
 
 		}
 		else if (Input.GetButton (controller.playerCode + "Fire3")) 
 		{
-			controller.updateCurrentColor (ColorLight.Blue);
+			controller.updatePersonalColor (ColorLight.Blue);
 
 		}
 	}

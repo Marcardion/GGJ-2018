@@ -12,15 +12,19 @@ public class PlayerController : MonoBehaviour {
 
 	public ColorLight currentColor;
 
+	public ColorLight personalColor;
+
 	[SerializeField] private Light mLight;
+
+
 
 	[HideInInspector] public Animator mAnimator;
 
 	// Use this for initialization
 	void Start () {
 		currentState = State.Normal;
-		updateLight (ColorLight.Blue);
-		currentColor = ColorLight.Blue;
+		updateCurrentColor (ColorLight.Blue);
+		personalColor = ColorLight.Blue;
 
 		mAnimator = GetComponentInChildren<Animator> ();
 	}
@@ -44,16 +48,24 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
-	public void updateCurrentColor(ColorLight colorLight){
+	public void updatePersonalColor(ColorLight colorLight){
 		
-		updateLight (colorLight);
-		currentColor = colorLight;
+		updateCurrentColor (colorLight);
+		personalColor = colorLight;
 
 	}
 
-	public void updateLight(ColorLight colorLight){
+	public void updateCurrentColor(ColorLight colorLight){
 		mLight.color = ColorUtils.GetColor (colorLight);
+		currentColor = colorLight;
 	}
 
+	public void EnableIsInteracting(){
+		Debug.Log ("IsInteracting");
+		mAnimator.SetBool ("IsInteracting", true);
+	}
 
+	public void DisableIsInteracting(){
+		mAnimator.SetBool ("IsInteracting", false);
+	}
 }

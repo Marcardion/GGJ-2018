@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FadeOut()
+	public IEnumerator FadeOut()
 	{
 		yield return new WaitForSeconds (1f);
 
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FadeIn()
+	public IEnumerator FadeIn()
 	{
 		float i = 1;
 

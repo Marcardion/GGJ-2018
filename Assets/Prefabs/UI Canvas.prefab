@@ -492,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 60
   active: 1
+  deathSound: {fileID: 8300000, guid: dccd789a3b83fb44693711da0825e842, type: 3}
 --- !u!114 &114998243820815774
 MonoBehaviour:
   m_ObjectHideFlags: 1

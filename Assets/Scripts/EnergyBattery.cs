@@ -16,6 +16,8 @@ public class EnergyBattery : MonoBehaviour {
 
 	public bool active = true;
 
+	[SerializeField] private AudioClip deathSound;
+
 	void Awake()
 	{
 		instance = this;
@@ -42,8 +44,12 @@ public class EnergyBattery : MonoBehaviour {
 		if (mSlider.value == 0) 
 		{
 			//Game Over
+			if (active) 
+			{
+				StartCoroutine (GameOver ());
+				active = false;
+			}
 
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
 	}
 
@@ -60,5 +66,27 @@ public class EnergyBattery : MonoBehaviour {
 	public void AddEnergy(float energy)
 	{
 		mSlider.value = mSlider.value + energy;
+	}
+
+	IEnumerator GameOver()
+	{
+		KillPlayers ();
+		SoundManager.instance.PlaySingle (deathSound, 0);
+		yield return new WaitForSeconds (1f);
+		StartCoroutine(GameManager.instance.FadeOut ());
+		yield return new WaitForSeconds (3f);
+
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
+
+	void KillPlayers()
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+
+		foreach (GameObject player in players) 
+		{
+			player.GetComponent<PlayerController> ().currentState = State.Dead;
+			player.GetComponent<PlayerController> ().mAnimator.SetTrigger ("Dead");
+		}
 	}
 }

@@ -14,8 +14,13 @@ public class ChestController : MonoBehaviour {
 
 	public bool enabled = true;
 
+	private bool p1IsInteracting = false;
+
+	private bool p2IsInteracting = false;
+
 	// Use this for initialization
 	void Start () {
+		enabled = true;
 		currentLight = ColorLight.Blue;
 		GameManager.instance.activeChests++;
 		GameManager.instance.UpdateText ();
@@ -25,6 +30,10 @@ public class ChestController : MonoBehaviour {
 	void Update () {
 		if (activating) {
 			life -= Time.deltaTime;
+			if (p1IsInteracting && p2IsInteracting) {
+				life -= Time.deltaTime * 2;
+			} 
+
 
 			if (life <= 0){
 				
@@ -51,7 +60,7 @@ public class ChestController : MonoBehaviour {
 		if (other.tag == "Player") {
 			PlayerController controller = other.gameObject.GetComponent<PlayerController> ();
 			if (Input.GetButton (controller.playerCode + "Fire1")) {
-				Debug.Log ("clicking button A");
+				
 
 				if (currentLight == controller.currentColor) {
 					EnableActivate (controller);
@@ -75,13 +84,32 @@ public class ChestController : MonoBehaviour {
 	}
 
 	private void EnableActivate(PlayerController controller){
+
+		if (controller.playerCode == "P1") {
+			p1IsInteracting = true;
+		} else {
+			p2IsInteracting = true;
+		}
+
 		activating = true;
-		controller.EnableIsInteracting ();
+		controller.EnableIsInteracting (transform.position);
 		controller.gameObject.transform.LookAt (transform.position);
 	}
 
 	private void DisableActivate(PlayerController controller){
-		activating = false;
+
+		Debug.Log ("Disable Acitvate " + controller.playerCode);
+		if (controller.playerCode == "P1") {
+			p1IsInteracting = false;
+		} else {
+			p2IsInteracting = false;
+		}
+
+		if (!p1IsInteracting && !p2IsInteracting){
+			activating = false;
+		}
+
+
 		controller.DisableIsInteracting ();
 	}
 

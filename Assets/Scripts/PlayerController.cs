@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private Light mLight;
 
-
+	[SerializeField] private LineRenderer effect;
 
 	[HideInInspector] public Animator mAnimator;
 
@@ -60,12 +60,17 @@ public class PlayerController : MonoBehaviour {
 		currentColor = colorLight;
 	}
 
-	public void EnableIsInteracting(){
+	public void EnableIsInteracting(Vector3 position){
 		Debug.Log ("IsInteracting");
 		mAnimator.SetBool ("IsInteracting", true);
+		effect.SetPosition (0, transform.position);
+		effect.SetPosition (1, position);
+
 	}
 
 	public void DisableIsInteracting(){
 		mAnimator.SetBool ("IsInteracting", false);
+		effect.SetPosition (0, transform.position);
+		effect.SetPosition (1, transform.position);
 	}
 }

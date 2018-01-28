@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4209022664537358}
   - component: {fileID: 33313954907124970}
-  - component: {fileID: 65940531576487304}
   - component: {fileID: 23189328435672218}
-  - component: {fileID: 114542389594299160}
-  - component: {fileID: 114149796863144824}
+  - component: {fileID: 65940531576487304}
   - component: {fileID: 135710688129770460}
+  - component: {fileID: 114149796863144824}
+  - component: {fileID: 114542389594299160}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -38,9 +38,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1521816009140140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0.52, z: 3.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 1.0109929, z: 7.04}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6887a5588dcd52343b02a4e6e94f9b88, type: 2}
+  - {fileID: 2100000, guid: 859b57c5910433e4ba25de56ee2308d5, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1521816009140140}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 859b57c5910433e4ba25de56ee2308d5, type: 3}
 --- !u!65 &65940531576487304
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.020000005, y: 0.019999998, z: 0.0048218397}
+  m_Center: {x: 0, y: 0, z: -0.0075415657}
 --- !u!114 &114149796863144824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLight: 1
-  life: 4
+  life: 3
   enabled: 1
 --- !u!114 &114542389594299160
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42921829394c1449b3aad5de5f5ebf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTime: 2
+  countdownTime: 4
   colors: 010000000200000003000000
   currentTime: 0
 --- !u!135 &135710688129770460
@@ -136,5 +136,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.0423963
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.025
+  m_Center: {x: 0, y: 0, z: -0.0075415657}

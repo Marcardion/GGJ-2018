@@ -130,6 +130,7 @@ ModelImporter:
     2100004: Collector_vers_3_body_NONE1
     2100006: lambert2
     2100008: lambert1
+    2100010: texture_lamp
     2300000: Body
     2300002: Container
     2300004: Head

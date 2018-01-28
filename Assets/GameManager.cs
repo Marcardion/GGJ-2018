@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField] private Text mText;
 
+	[SerializeField] private SpriteRenderer black;
+
 	void Awake ()
 	{
 		if (instance != null) {
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 
 		mText.text = activeChests.ToString ();
+		StartCoroutine (FadeIn ());
 	}
 	
 	// Update is called once per frame
@@ -50,13 +53,50 @@ public class GameManager : MonoBehaviour {
 		if (activeChests <= 0) 
 		{
 			Debug.Log ("Game Over");
+			EnergyBattery.instance.active = false;
+			DeactivatePlayers ();
+			StartCoroutine (FadeOut ());
 			StartCoroutine (GameOver ());
 		}
 	}
 
 	IEnumerator GameOver()
 	{
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (5f);
 		SceneManager.LoadScene ("Main Menu");
+	}
+
+	void DeactivatePlayers()
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+
+		foreach (GameObject player in players) 
+		{
+			player.GetComponent<PlayerController> ().currentState = State.Dead;
+		}
+	}
+
+	IEnumerator FadeOut()
+	{
+		float i = 0;
+
+		while (i < 1) 
+		{
+			black.color = new Color (black.color.r, black.color.g, black.color.b, i);
+			i = i + Time.deltaTime;
+			yield return new WaitForEndOfFrame ();
+		}
+	}
+
+	IEnumerator FadeIn()
+	{
+		float i = 1;
+
+		while (i > 0) 
+		{
+			black.color = new Color (black.color.r, black.color.g, black.color.b, i);
+			i = i - Time.deltaTime;
+			yield return new WaitForEndOfFrame ();
+		}
 	}
 }

@@ -20,9 +20,9 @@ public class Robot_Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-
-		Move ();
-		
+		if (controller.currentState != State.Dead) {
+			Move ();
+		}
 	}
 
 	void Move()

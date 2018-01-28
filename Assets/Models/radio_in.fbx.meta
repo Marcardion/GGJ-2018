@@ -15,6 +15,13 @@ ModelImporter:
     100014: parede cima
     100016: Plane
     100018: //RootNode
+    100020: coluna.001
+    100022: coluna.002
+    100024: coluna.003
+    100026: Placa
+    100028: Point
+    100030: Point.001
+    100032: porta
     400000: coluna
     400002: coluna.2
     400004: coluna.3
@@ -25,11 +32,25 @@ ModelImporter:
     400014: parede cima
     400016: Plane
     400018: //RootNode
+    400020: coluna.001
+    400022: coluna.002
+    400024: coluna.003
+    400026: Placa
+    400028: Point
+    400030: Point.001
+    400032: porta
     2100000: No Name
     2100002: Material.004
     2100004: Material.006
     2100006: Material.007
     2100008: Material.008
+    2100010: Material.011
+    2100012: Material.001
+    2100014: Material.003
+    2100016: Material.012
+    2100018: Material.005
+    2100020: Material.009
+    2100022: Material.010
     2300000: coluna
     2300002: coluna.2
     2300004: coluna.3
@@ -39,6 +60,11 @@ ModelImporter:
     2300012: parede baixa
     2300014: parede cima
     2300016: Plane
+    2300018: coluna.001
+    2300020: coluna.002
+    2300022: coluna.003
+    2300024: Placa
+    2300026: porta
     3300000: coluna
     3300002: coluna.2
     3300004: coluna.3
@@ -48,6 +74,11 @@ ModelImporter:
     3300012: parede baixa
     3300014: parede cima
     3300016: Plane
+    3300018: coluna.001
+    3300020: coluna.002
+    3300022: coluna.003
+    3300024: Placa
+    3300026: porta
     4300000: Plane
     4300002: coluna
     4300004: parede baixa
@@ -57,6 +88,13 @@ ModelImporter:
     4300012: coluna.4
     4300014: coluna.2
     4300016: parece direita
+    4300018: porta
+    4300020: Placa
+    4300022: coluna.001
+    4300024: coluna.002
+    4300026: coluna.003
+    10800000: Point
+    10800002: Point.001
   externalObjects: {}
   materials:
     importMaterials: 1

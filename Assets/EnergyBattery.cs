@@ -14,6 +14,8 @@ public class EnergyBattery : MonoBehaviour {
 
 	public static EnergyBattery instance;
 
+	public bool active = true;
+
 	void Awake()
 	{
 		instance = this;
@@ -29,14 +31,14 @@ public class EnergyBattery : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (overHeated) 
-		{
-			DecreaseEnergy (Time.deltaTime*3);	
-		} else 
-		{
-			DecreaseEnergy (Time.deltaTime);
-		}
+		if (active) {
+			if (overHeated) {
+				DecreaseEnergy (Time.deltaTime * 3);	
+			} else {
+				DecreaseEnergy (Time.deltaTime);
+			}
 
+		}
 		if (mSlider.value == 0) 
 		{
 			//Game Over

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 
 	public string playerCode;
 
-	private State currentState; 
+	public State currentState; 
 
 	public ColorLight currentColor;
 

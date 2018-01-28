@@ -12,6 +12,8 @@ public class ChestController : MonoBehaviour {
 
 	[SerializeField] private AudioClip chestEnd;
 
+	[SerializeField] private GameObject aButton;
+
 	private bool activating = false;
 
 	public bool enabled = true;
@@ -46,6 +48,7 @@ public class ChestController : MonoBehaviour {
 					EnergyBattery.instance.AddEnergy (10f);
 					GameManager.instance.ChestEnded ();
 					SoundManager.instance.PlaySingle (chestEnd, 0);
+					aButton.SetActive (false);
 					enabled = false;
 				}
 					
@@ -61,8 +64,13 @@ public class ChestController : MonoBehaviour {
 	}
 
 	void OnTriggerStay( Collider other){
-
+		
 		if (other.tag == "Player") {
+
+			if (enabled) {
+				aButton.SetActive (true);
+			}
+
 			PlayerController controller = other.gameObject.GetComponent<PlayerController> ();
 			if (Input.GetButton (controller.playerCode + "Fire1")) {
 				
@@ -80,7 +88,9 @@ public class ChestController : MonoBehaviour {
 	}
 
 	void OnTriggerExit( Collider other){
-		
+
+		aButton.SetActive (false);
+
 		if (other.tag == "Player") {
 			PlayerController controller = other.gameObject.GetComponent<PlayerController> ();
 			DisableActivate (controller);

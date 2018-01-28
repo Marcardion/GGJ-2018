@@ -15,6 +15,9 @@ public class Robot_Proximity : MonoBehaviour {
 	[SerializeField] private LineRenderer line;
 
 	private bool vibrate = false;
+
+	[SerializeField] private AudioSource mSource;
+
 	// Use this for initialization
 	void Start () {
 		p1Controller = robotP1.GetComponent<PlayerController> ();
@@ -28,6 +31,10 @@ public class Robot_Proximity : MonoBehaviour {
 		if (CheckDistance ()) {
 			line.gameObject.SetActive (true);
 			vibrate = true;
+			if (!mSource.isPlaying) {
+				mSource.Play ();
+			}
+
 			SetLine ();
 		} else 
 		{
@@ -64,6 +71,9 @@ public class Robot_Proximity : MonoBehaviour {
 			p2Controller.updateLight (mixedColor);
 
 			EnergyBattery.instance.SetOverheat (true);
+
+
+
 			return true;
 		} else 
 		{
@@ -71,6 +81,13 @@ public class Robot_Proximity : MonoBehaviour {
 			p2Controller.updateLight (p2Controller.currentColor);
 
 			EnergyBattery.instance.SetOverheat (false);
+
+			if (mSource.isPlaying)
+			{
+				mSource.Stop ();
+			}
+
+
 			return false;
 		}
 	}

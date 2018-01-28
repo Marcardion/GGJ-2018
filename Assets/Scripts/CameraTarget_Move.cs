@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CameraTarget_Move : MonoBehaviour {
 
+	[SerializeField] private GameObject p1;
+	[SerializeField] private GameObject p2;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,23 +16,7 @@ public class CameraTarget_Move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown ("w")) 
-		{
-			MoveTo (0);
-		}
-		if (Input.GetKeyDown ("a")) 
-		{
-			MoveTo (3);
-		}
-		if (Input.GetKeyDown ("d")) 
-		{
-			MoveTo (1);
-		}
-		if (Input.GetKeyDown ("s")) 
-		{
-			MoveTo (2);
-		}
-		
+		transform.position = (p1.transform.position + p2.transform.position) / 2f;
 	}
 
 	void MoveTo(int direction)

@@ -39,13 +39,30 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public void RandomizeSfx (int channel, params AudioClip [] clips) {
-		int randomIndex = Random.Range(0, clips.Length);
+		int randomIndex = Random.Range(0, clips.Length - 1);
 		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
 
 		efxSource[channel].pitch = randomPitch;
 		efxSource[channel].clip = clips[randomIndex];
 		efxSource[channel].Play();
 	}
+
+	public bool IsChannelPlaying(int channel){
+		if (channel < efxSource.Length) {
+			return efxSource [channel].isPlaying;
+
+		} else {
+			return false;
+		}
+	}
+
+	public void StopPlay(int channel){
+		if (channel < efxSource.Length) {
+			efxSource [channel].Stop();
+
+		} 
+	}
+
 
 	IEnumerator PlayMusic(float time)
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum State { Normal, Damaged, Dead }
+public enum State { Normal, Damaged, Falling, Dead }
 
 public class PlayerController : MonoBehaviour {
 
@@ -20,8 +20,14 @@ public class PlayerController : MonoBehaviour {
 
 	[HideInInspector] public Animator mAnimator;
 
+
+	[SerializeField] private AudioClip[] fallingSfxs;
+
+	private Vector3 initialPosition;
+
 	// Use this for initialization
 	void Start () {
+		initialPosition = transform.position;
 		currentState = State.Normal;
 		updateCurrentColor (ColorLight.Blue);
 		personalColor = ColorLight.Blue;
@@ -31,7 +37,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		checkIsFalling ();
+		checkFallRespawn ();
 	}
 
 	public bool isNormal(){
@@ -58,6 +65,8 @@ public class PlayerController : MonoBehaviour {
 	public void updateCurrentColor(ColorLight colorLight){
 		mLight.color = ColorUtils.GetColor (colorLight);
 		currentColor = colorLight;
+		effect.startColor = ColorUtils.GetColor (colorLight);
+		effect.endColor = ColorUtils.GetColor (colorLight);
 	}
 
 	public void EnableIsInteracting(Vector3 position){
@@ -72,5 +81,30 @@ public class PlayerController : MonoBehaviour {
 		mAnimator.SetBool ("IsInteracting", false);
 		effect.SetPosition (0, transform.position);
 		effect.SetPosition (1, transform.position);
+	}
+
+	private void checkIsFalling(){
+		if (transform.position.y < -2f && currentState != State.Falling ){
+			currentState = State.Falling;
+			if (!SoundManager.instance.IsChannelPlaying (1)) {
+				SoundManager.instance.RandomizeSfx (1, fallingSfxs);
+			} else {
+				SoundManager.instance.RandomizeSfx (2, fallingSfxs);
+			}
+
+		}
+	}
+
+	private void checkFallRespawn(){
+		
+		if (transform.position.y < -15) {
+			transform.position = initialPosition;
+			currentState = State.Normal;
+			if (SoundManager.instance.IsChannelPlaying (1)) {
+				SoundManager.instance.StopPlay (1);
+			} else {
+				SoundManager.instance.StopPlay (2);
+			}
+		}
 	}
 }

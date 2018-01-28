@@ -1889,6 +1889,10 @@ MonoBehaviour:
   mLight: {fileID: 108380653203130460}
   effect: {fileID: 120854028046850246}
   mAnimator: {fileID: 0}
+  fallingSfxs:
+  - {fileID: 8300000, guid: e44969a70f446c04081a4ec33d1785bd, type: 3}
+  - {fileID: 8300000, guid: 36a9e8f74bcee6347ad5e0e9f11ff199, type: 3}
+  - {fileID: 8300000, guid: 42fe2dabf14260d4587578c5da29c110, type: 3}
 --- !u!114 &114844241288942760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1940,7 +1944,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.1
+    widthMultiplier: 0.8
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1988,7 +1992,7 @@ LineRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 12336
+      ctime1: 65535
       ctime2: 65535
       ctime3: 0
       ctime4: 0
@@ -2003,8 +2007,8 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
+      m_Mode: 1
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0

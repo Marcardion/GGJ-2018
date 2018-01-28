@@ -22,13 +22,15 @@ public class ChestController : MonoBehaviour {
 
 	private bool p2IsInteracting = false;
 
+	[HideInInspector] public Animator mAnimator;
+
 	// Use this for initialization
 	void Start () {
 		enabled = true;
 		currentLight = ColorLight.Blue;
 		GameManager.instance.activeChests++;
 		GameManager.instance.UpdateText ();
-
+		mAnimator = GetComponentInChildren<Animator> ();
 		mAudio = GetComponent<AudioSource> ();
 	}
 	
@@ -107,6 +109,7 @@ public class ChestController : MonoBehaviour {
 		}
 
 		activating = true;
+		mAnimator.SetBool ("IsActivating", true);
 		controller.EnableIsInteracting (transform.position);
 		controller.gameObject.transform.LookAt (transform.position);
 
@@ -119,6 +122,8 @@ public class ChestController : MonoBehaviour {
 	private void DisableActivate(PlayerController controller){
 
 		Debug.Log ("Disable Acitvate " + controller.playerCode);
+
+
 		if (controller.playerCode == "P1") {
 			p1IsInteracting = false;
 		} else {
@@ -127,6 +132,7 @@ public class ChestController : MonoBehaviour {
 
 		if (!p1IsInteracting && !p2IsInteracting){
 			activating = false;
+			mAnimator.SetBool ("IsActivating", false);
 		}
 
 		if (mAudio.isPlaying) 

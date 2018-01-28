@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private AudioClip[] fallingSfxs;
 
+
+	[SerializeField] private GameObject robotHead;
+
 	private Vector3 initialPosition;
 
 	// Use this for initialization
@@ -63,10 +66,18 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void updateCurrentColor(ColorLight colorLight){
-		mLight.color = ColorUtils.GetColor (colorLight);
+		Color color = ColorUtils.GetColor (colorLight);
+		mLight.color = color;
+
+		effect.startColor = color;
+		effect.endColor = color;
+
+		color.a = 0.6f;
+		robotHead.GetComponent<Renderer> ().material.color = color;
+			
 		currentColor = colorLight;
-		effect.startColor = ColorUtils.GetColor (colorLight);
-		effect.endColor = ColorUtils.GetColor (colorLight);
+
+
 	}
 
 	public void EnableIsInteracting(Vector3 position){
@@ -74,6 +85,8 @@ public class PlayerController : MonoBehaviour {
 		mAnimator.SetBool ("IsInteracting", true);
 		effect.SetPosition (0, transform.position);
 		effect.SetPosition (1, position);
+
+
 
 	}
 

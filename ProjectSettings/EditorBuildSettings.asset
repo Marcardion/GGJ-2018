@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PLACEHOLDER/Camera Test.unity
     guid: 956dbb8eba01c3844b74cc95d230c276
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: ca25d9e170ced3a4ea4012cf05302710

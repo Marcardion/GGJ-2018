@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 114474342301983036}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1824,6 +1824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCode: P1
   currentColor: 0
+  personalColor: 0
   mLight: {fileID: 108380653203130460}
   mAnimator: {fileID: 0}
 --- !u!114 &114844241288942760

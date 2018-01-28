@@ -54,4 +54,9 @@ public class EnergyBattery : MonoBehaviour {
 	{
 		overHeated = mode;
 	}
+
+	public void AddEnergy(float energy)
+	{
+		mSlider.value = mSlider.value + energy;
+	}
 }

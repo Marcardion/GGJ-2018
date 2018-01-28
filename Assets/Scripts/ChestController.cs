@@ -17,6 +17,8 @@ public class ChestController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentLight = ColorLight.Blue;
+		GameManager.instance.activeChests++;
+		GameManager.instance.UpdateText ();
 	}
 	
 	// Update is called once per frame
@@ -25,9 +27,14 @@ public class ChestController : MonoBehaviour {
 			life -= Time.deltaTime;
 
 			if (life <= 0){
-				updateLightColor (ColorLight.None);
-				enabled = false;
-				//Destroy (this.gameObject);
+				
+				if (enabled) {
+					updateLightColor (ColorLight.None);
+					EnergyBattery.instance.AddEnergy (10f);
+					GameManager.instance.ChestEnded ();
+					enabled = false;
+				}
+					
 			}
 		}
 	}

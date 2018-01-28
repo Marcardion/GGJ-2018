@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de4b91ced566554683b00f1f0582244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Camera Test
+  sceneName: Stage 1
 --- !u!114 &489672684
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,27 +1,33 @@
 fileFormatVersion: 2
-guid: 859b57c5910433e4ba25de56ee2308d5
-timeCreated: 1517111052
+guid: e6fc3ae62e788ec41b867440836f5167
+timeCreated: 1517163590
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Cube
-    100004: Cube.001
-    400000: //RootNode
-    400002: Cube
-    400004: Cube.001
-    2100000: Material
+    100000: Cube
+    100002: Cube.001
+    100004: Lamp
+    100006: Lamp.001
+    100008: Lamp.002
+    100010: //RootNode
+    400000: Cube
+    400002: Cube.001
+    400004: Lamp
+    400006: Lamp.001
+    400008: Lamp.002
+    400010: //RootNode
+    2100000: Material.001
     2100002: Material.002
-    2100004: Material.003
-    2300000: //RootNode
-    2300002: Cube
-    2300004: Cube.001
-    3300000: //RootNode
-    3300002: Cube
-    3300004: Cube.001
+    2300000: Cube
+    2300002: Cube.001
+    3300000: Cube
+    3300002: Cube.001
     4300000: Cube
     4300002: Cube.001
+    10800000: Lamp
+    10800002: Lamp.001
+    10800004: Lamp.002
   externalObjects: {}
   materials:
     importMaterials: 1

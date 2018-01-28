@@ -32,7 +32,7 @@ public class Robot_Proximity : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (CheckDistance ()) {
+		if (CheckDistance () && p1Controller.currentState != State.Dead) {
 			line.gameObject.SetActive (true);
 			vibrate = true;
 			if (!mSource.isPlaying) {

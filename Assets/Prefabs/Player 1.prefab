@@ -1893,6 +1893,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e44969a70f446c04081a4ec33d1785bd, type: 3}
   - {fileID: 8300000, guid: 36a9e8f74bcee6347ad5e0e9f11ff199, type: 3}
   - {fileID: 8300000, guid: 42fe2dabf14260d4587578c5da29c110, type: 3}
+  robotHead: {fileID: 1564767206973276}
 --- !u!114 &114844241288942760
 MonoBehaviour:
   m_ObjectHideFlags: 1

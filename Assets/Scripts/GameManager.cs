@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField] private SpriteRenderer black;
 
+	[SerializeField] private string nextLevel;
+
 	void Awake ()
 	{
 		if (instance != null) {
@@ -62,8 +64,8 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator GameOver()
 	{
-		yield return new WaitForSeconds (5f);
-		SceneManager.LoadScene ("Main Menu");
+		yield return new WaitForSeconds (3f);
+		SceneManager.LoadScene (nextLevel);
 	}
 
 	void DeactivatePlayers()

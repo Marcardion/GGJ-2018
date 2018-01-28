@@ -58,7 +58,10 @@ public class StartGame_Button : MonoBehaviour {
 	IEnumerator StartGame()
 	{
 		StartCoroutine ("FadeOut");
-		radioAnimator.SetBool ("Stop", true);
+		if (radioAnimator != null){
+			radioAnimator.SetBool ("Stop", true);
+		}
+
 		SoundManager.instance.StopMusic ();
 		SoundManager.instance.PlaySingle ( brokenRadioClip, 3);
 		yield return new WaitForSeconds (2f);
@@ -77,7 +80,10 @@ public class StartGame_Button : MonoBehaviour {
 
 		while (i < 1) 
 		{
-			black.color = new Color (black.color.r, black.color.g, black.color.b, i);
+			if (black != null) {
+				black.color = new Color (black.color.r, black.color.g, black.color.b, i);
+			}
+
 			i = i + Time.deltaTime;
 			yield return new WaitForEndOfFrame ();
 		}

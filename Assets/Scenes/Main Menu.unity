@@ -204,8 +204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 19.3, y: 10.3}
+  m_SizeDelta: {x: 177.4, y: 163.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322241694
 MonoBehaviour:
@@ -344,7 +344,7 @@ MonoBehaviour:
   pressButton: Fire1
   radioAnimator: {fileID: 18875930}
   brokenRadioClip: {fileID: 8300000, guid: e4e6ee897ebfe2246a928b5425758899, type: 3}
-  black: {fileID: 0}
+  black: {fileID: 322241694}
 --- !u!1001 &645693689
 Prefab:
   m_ObjectHideFlags: 0

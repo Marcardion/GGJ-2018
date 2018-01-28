@@ -6,7 +6,7 @@ public class ChestController : MonoBehaviour {
 
 	public ColorLight currentLight;
 
-
+	private AudioSource mAudio;
 
 	[SerializeField] private float life =  6f;
 
@@ -24,6 +24,8 @@ public class ChestController : MonoBehaviour {
 		currentLight = ColorLight.Blue;
 		GameManager.instance.activeChests++;
 		GameManager.instance.UpdateText ();
+
+		mAudio = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -94,6 +96,11 @@ public class ChestController : MonoBehaviour {
 		activating = true;
 		controller.EnableIsInteracting (transform.position);
 		controller.gameObject.transform.LookAt (transform.position);
+
+		if (!mAudio.isPlaying) 
+		{
+			mAudio.Play ();
+		}
 	}
 
 	private void DisableActivate(PlayerController controller){
@@ -109,6 +116,10 @@ public class ChestController : MonoBehaviour {
 			activating = false;
 		}
 
+		if (mAudio.isPlaying) 
+		{
+			mAudio.Stop ();
+		}
 
 		controller.DisableIsInteracting ();
 	}

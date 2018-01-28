@@ -1625,7 +1625,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1050028211415676}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -5.568, y: 1.117, z: 0}
+  m_LocalPosition: {x: -5.568, y: 1.117, z: 4.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4802026308273178}
@@ -1889,7 +1889,10 @@ MonoBehaviour:
   mLight: {fileID: 108330535548005278}
   effect: {fileID: 120707720393125542}
   mAnimator: {fileID: 0}
-  fallingSfxs: []
+  fallingSfxs:
+  - {fileID: 8300000, guid: e44969a70f446c04081a4ec33d1785bd, type: 3}
+  - {fileID: 8300000, guid: 36a9e8f74bcee6347ad5e0e9f11ff199, type: 3}
+  - {fileID: 8300000, guid: 42fe2dabf14260d4587578c5da29c110, type: 3}
   robotHead: {fileID: 1857701085555866}
 --- !u!114 &114982463932674028
 MonoBehaviour:
@@ -1903,6 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  movingSfxs: []
 --- !u!120 &120707720393125542
 LineRenderer:
   m_ObjectHideFlags: 1
